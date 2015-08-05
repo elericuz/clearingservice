@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.21, for osx10.8 (x86_64)
 --
--- Host: localhost    Database: fortalecer01
+-- Host: localhost    Database: SysStack_ClearingService_01
 -- ------------------------------------------------------
 -- Server version	5.6.21
 
@@ -560,7 +560,7 @@ CREATE TABLE `website_tb_security_user` (
 
 LOCK TABLES `website_tb_security_user` WRITE;
 /*!40000 ALTER TABLE `website_tb_security_user` DISABLE KEYS */;
-INSERT INTO `website_tb_security_user` VALUES (1,1,'8a4e8bcd6cc8ae4d3682b517baeaff9f','e83d0f134f4dbe513c83b67212e48635','admin@example.com',1,NULL,NULL,'',1,'2010-11-17 01:06:23','127.0.0.1'),(2,3,'e923d9f088d11e3a1cf8ada93768b669','e83d0f134f4dbe513c83b67212e48635','user@example.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:55','201.230.75.59');
+INSERT INTO `website_tb_security_user` VALUES (1,1,'56ced81a50052e74a2b4cc2c4202fdb5','fa717dd958f77703ad91c170bb57ccd8','admin@sysbus.com',1,NULL,NULL,'',1,'2010-11-17 01:06:23','127.0.0.1'),(2,3,'7bf287d85d71cc8ceaf377177b8128f7','b9c6c308f791b4ed1674f87a82032118','demo@sysbus.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:55','201.230.75.59');
 /*!40000 ALTER TABLE `website_tb_security_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,4 +634,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-11 19:44:44
+-- Dump completed on 2015-08-05  0:09:48
