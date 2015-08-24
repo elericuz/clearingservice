@@ -7,11 +7,38 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WebsiteTbSecurityAccess
  *
- * @ORM\Table(name="website_tb_security_access", indexes={@ORM\Index(name="scex_tb_security_access_fk", columns={"seni_id"}), @ORM\Index(name="glen_tb_security_access_fk1", columns={"scri_id"}), @ORM\Index(name="module", columns={"smoi_id"})})
+ * @ORM\Table(name="website_tb_security_access", indexes={@ORM\Index(name="scex_tb_security_access_fk", columns={"seni_id"}), @ORM\Index(name="glen_tb_security_access_fk1", columns={"scri_id"})})
  * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityAccessRepository")
  */
 class WebsiteTbSecurityAccess
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="scri_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $scriId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="smoi_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $smoiId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="seni_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $seniId;
+
     /**
      * @var \DateTime
      *
@@ -63,43 +90,76 @@ class WebsiteTbSecurityAccess
      */
     private $sacvModIp;
 
-    /**
-     * @var \Application\Entity\WebsiteTbSecurityEntity
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Application\Entity\WebsiteTbSecurityEntity")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="seni_id", referencedColumnName="seni_id")
-     * })
-     */
-    private $seni;
+
 
     /**
-     * @var \Application\Entity\WebsiteTbSecurityCrud
+     * Set scriId
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Application\Entity\WebsiteTbSecurityCrud")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="scri_id", referencedColumnName="scri_id")
-     * })
+     * @param integer $scriId
+     * @return WebsiteTbSecurityAccess
      */
-    private $scri;
+    public function setScriId($scriId)
+    {
+        $this->scriId = $scriId;
+
+        return $this;
+    }
 
     /**
-     * @var \Application\Entity\WebsiteTbSecurityModule
+     * Get scriId
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Application\Entity\WebsiteTbSecurityModule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="smoi_id", referencedColumnName="smoi_id")
-     * })
+     * @return integer 
      */
-    private $smoi;
+    public function getScriId()
+    {
+        return $this->scriId;
+    }
 
+    /**
+     * Set smoiId
+     *
+     * @param integer $smoiId
+     * @return WebsiteTbSecurityAccess
+     */
+    public function setSmoiId($smoiId)
+    {
+        $this->smoiId = $smoiId;
 
+        return $this;
+    }
+
+    /**
+     * Get smoiId
+     *
+     * @return integer 
+     */
+    public function getSmoiId()
+    {
+        return $this->smoiId;
+    }
+
+    /**
+     * Set seniId
+     *
+     * @param integer $seniId
+     * @return WebsiteTbSecurityAccess
+     */
+    public function setSeniId($seniId)
+    {
+        $this->seniId = $seniId;
+
+        return $this;
+    }
+
+    /**
+     * Get seniId
+     *
+     * @return integer 
+     */
+    public function getSeniId()
+    {
+        return $this->seniId;
+    }
 
     /**
      * Set sacdCreatedDate
@@ -260,74 +320,5 @@ class WebsiteTbSecurityAccess
     public function getSacvModIp()
     {
         return $this->sacvModIp;
-    }
-
-    /**
-     * Set seni
-     *
-     * @param \Application\Entity\WebsiteTbSecurityEntity $seni
-     * @return WebsiteTbSecurityAccess
-     */
-    public function setSeni(\Application\Entity\WebsiteTbSecurityEntity $seni)
-    {
-        $this->seni = $seni;
-
-        return $this;
-    }
-
-    /**
-     * Get seni
-     *
-     * @return \Application\Entity\WebsiteTbSecurityEntity 
-     */
-    public function getSeni()
-    {
-        return $this->seni;
-    }
-
-    /**
-     * Set scri
-     *
-     * @param \Application\Entity\WebsiteTbSecurityCrud $scri
-     * @return WebsiteTbSecurityAccess
-     */
-    public function setScri(\Application\Entity\WebsiteTbSecurityCrud $scri)
-    {
-        $this->scri = $scri;
-
-        return $this;
-    }
-
-    /**
-     * Get scri
-     *
-     * @return \Application\Entity\WebsiteTbSecurityCrud 
-     */
-    public function getScri()
-    {
-        return $this->scri;
-    }
-
-    /**
-     * Set smoi
-     *
-     * @param \Application\Entity\WebsiteTbSecurityModule $smoi
-     * @return WebsiteTbSecurityAccess
-     */
-    public function setSmoi(\Application\Entity\WebsiteTbSecurityModule $smoi)
-    {
-        $this->smoi = $smoi;
-
-        return $this;
-    }
-
-    /**
-     * Get smoi
-     *
-     * @return \Application\Entity\WebsiteTbSecurityModule 
-     */
-    public function getSmoi()
-    {
-        return $this->smoi;
     }
 }

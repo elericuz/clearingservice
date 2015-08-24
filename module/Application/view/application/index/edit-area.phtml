@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Editar Servicio</h1>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="large-12 columns">
+        <form action="<? echo $this->url('edit-area-service'); ?>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="trdiId" value="<?php echo $this->trdiId; ?>">
+            <input type="hidden" name="teriId">
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Area
+                </div>
+                <div class="large-9 columns">
+                    <input type="text" name="trdvArea" value="<?php echo $this->detail->getTrdvArea(); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Observaciones
+                </div>
+                <div class="large-9 columns">
+                    <textarea name="trdtObservation" rows="8"><?php echo $this->detail->getTrdtObservation(); ?></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Recomendaciones / Acciones Correctivas
+                </div>
+                <div class="large-9 columns">
+                    <textarea name="trdtAction" rows="8"><?php echo $this->detail->getTrdtAction(); ?></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Imagen<br>
+                    <a href="/photos/<?php echo $this->detail->getTrdvPhoto(); ?>" class="label secondary">Ver Imágen Actual</a>
+                </div>
+                <div class="large-9 columns">
+                    <input type="file" name="trdvPhoto">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-12 columns">
+                    <button class="button radius tiny">Guardar cambios</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

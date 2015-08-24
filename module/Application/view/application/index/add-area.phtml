@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Editar Servicio</h1>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="large-12 columns">
+        <form action="<? echo $this->url('add-area-service'); ?>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="trdiId">
+            <input type="hidden" name="teriId" value="<?php echo $this->teriId; ?>">
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Area
+                </div>
+                <div class="large-9 columns">
+                    <input type="text" name="trdvArea" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Observaciones
+                </div>
+                <div class="large-9 columns">
+                    <textarea name="trdtObservation" rows="8"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Recomendaciones / Acciones Correctivas
+                </div>
+                <div class="large-9 columns">
+                    <textarea name="trdtAction" rows="8"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Imagen
+                </div>
+                <div class="large-9 columns">
+                    <input type="file" name="trdvPhoto">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-12 columns">
+                    <button class="button radius tiny">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
