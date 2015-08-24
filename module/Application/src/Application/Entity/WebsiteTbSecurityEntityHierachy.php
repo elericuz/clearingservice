@@ -24,13 +24,6 @@ class WebsiteTbSecurityEntityHierachy
     /**
      * @var integer
      *
-     * @ORM\Column(name="seni_id", type="integer", nullable=true)
-     */
-    private $seniId = '0';
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="seni_father_id", type="integer", nullable=true)
      */
     private $seniFatherId = '0';
@@ -42,6 +35,16 @@ class WebsiteTbSecurityEntityHierachy
      */
     private $sehyStatus = '1';
 
+    /**
+     * @var \Application\Entity\WebsiteTbSecurityEntityHierachy
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbSecurityEntityHierachy")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="seni_id", referencedColumnName="sehi_id")
+     * })
+     */
+    private $seni;
+
 
 
     /**
@@ -52,29 +55,6 @@ class WebsiteTbSecurityEntityHierachy
     public function getSehiId()
     {
         return $this->sehiId;
-    }
-
-    /**
-     * Set seniId
-     *
-     * @param integer $seniId
-     * @return WebsiteTbSecurityEntityHierachy
-     */
-    public function setSeniId($seniId)
-    {
-        $this->seniId = $seniId;
-
-        return $this;
-    }
-
-    /**
-     * Get seniId
-     *
-     * @return integer 
-     */
-    public function getSeniId()
-    {
-        return $this->seniId;
     }
 
     /**
@@ -121,5 +101,28 @@ class WebsiteTbSecurityEntityHierachy
     public function getSehyStatus()
     {
         return $this->sehyStatus;
+    }
+
+    /**
+     * Set seni
+     *
+     * @param \Application\Entity\WebsiteTbSecurityEntityHierachy $seni
+     * @return WebsiteTbSecurityEntityHierachy
+     */
+    public function setSeni(\Application\Entity\WebsiteTbSecurityEntityHierachy $seni = null)
+    {
+        $this->seni = $seni;
+
+        return $this;
+    }
+
+    /**
+     * Get seni
+     *
+     * @return \Application\Entity\WebsiteTbSecurityEntityHierachy 
+     */
+    public function getSeni()
+    {
+        return $this->seni;
     }
 }

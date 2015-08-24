@@ -22,13 +22,6 @@ class WebsiteTbSecurityEntity
     private $seniId;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="seti_id", type="integer", nullable=true)
-     */
-    private $setiId;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="seny_status", type="boolean", nullable=false)
@@ -77,6 +70,16 @@ class WebsiteTbSecurityEntity
      */
     private $senvModIp = '';
 
+    /**
+     * @var \Application\Entity\WebsiteTbSecurityEntityType
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbSecurityEntityType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="seti_id", referencedColumnName="seti_id")
+     * })
+     */
+    private $seti;
+
 
 
     /**
@@ -87,29 +90,6 @@ class WebsiteTbSecurityEntity
     public function getSeniId()
     {
         return $this->seniId;
-    }
-
-    /**
-     * Set setiId
-     *
-     * @param integer $setiId
-     * @return WebsiteTbSecurityEntity
-     */
-    public function setSetiId($setiId)
-    {
-        $this->setiId = $setiId;
-
-        return $this;
-    }
-
-    /**
-     * Get setiId
-     *
-     * @return integer 
-     */
-    public function getSetiId()
-    {
-        return $this->setiId;
     }
 
     /**
@@ -271,5 +251,28 @@ class WebsiteTbSecurityEntity
     public function getSenvModIp()
     {
         return $this->senvModIp;
+    }
+
+    /**
+     * Set seti
+     *
+     * @param \Application\Entity\WebsiteTbSecurityEntityType $seti
+     * @return WebsiteTbSecurityEntity
+     */
+    public function setSeti(\Application\Entity\WebsiteTbSecurityEntityType $seti = null)
+    {
+        $this->seti = $seti;
+
+        return $this;
+    }
+
+    /**
+     * Get seti
+     *
+     * @return \Application\Entity\WebsiteTbSecurityEntityType 
+     */
+    public function getSeti()
+    {
+        return $this->seti;
     }
 }
