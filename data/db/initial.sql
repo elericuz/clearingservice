@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.21, for osx10.8 (x86_64)
 --
--- Host: localhost    Database: SysStack_Calendar_01
+-- Host: localhost    Database: SysStack_ClearingService_01
 -- ------------------------------------------------------
 -- Server version	5.6.21
 
@@ -14,6 +14,30 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `website_tb_client`
+--
+
+DROP TABLE IF EXISTS `website_tb_client`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_tb_client` (
+  `clii_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cliv_name` varchar(250) DEFAULT NULL,
+  `cliv_address` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`clii_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_tb_client`
+--
+
+LOCK TABLES `website_tb_client` WRITE;
+/*!40000 ALTER TABLE `website_tb_client` DISABLE KEYS */;
+/*!40000 ALTER TABLE `website_tb_client` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `website_tb_events`
@@ -723,6 +747,66 @@ LOCK TABLES `website_tb_socio` WRITE;
 INSERT INTO `website_tb_socio` VALUES (1,'IDER CV ','LA LIBERTAD',0,27,1),(2,'ASOCIACION ARARIWA','CUSCO',0,4,1),(3,'RED RURAL SONDONDO','AYACUCHO',0,37,1),(4,'IDESI HUANUCO','HUANUCO',0,28,1),(5,'ASOCIACION MUJERES EN ACCION','LA LIBERTAD',0,5,1),(6,'ASOCIACION BENEFICA PRISMA','LIMA',0,36,1),(7,'ALTERNATIVA','LIMA',0,3,1),(8,'CAC LOS ANDES COTARUSI','APURIMAC',0,10,1),(9,'EDAPROSPO','LIMA',0,23,1),(10,'CEPAS PUNO','PUNO',0,19,1),(11,'MIDE','CUSCO',0,34,1),(12,'ADEA ANDAHUAYLAS','APURIMAC',0,1,1),(13,'CEOP ILO','MOQUEGUA',0,18,1),(14,'IPR','LAMBAYEQUE',0,33,1),(15,'SEA','LIMA',0,38,1),(16,'IDESI ICA','ICA',0,29,1),(17,'IDESI LAMBAYEQUE','LAMBAYEQUE',0,31,1),(18,'CENCA','LIMA',0,17,1),(19,'INPET','LIMA',0,32,1),(20,'SEPAR','JUNIN',0,39,1),(21,'FOVIDA','LIMA',0,26,1),(22,'FINCA PERU','AYACUCHO',0,24,1),(23,'COPEME','LIMA',0,22,1),(24,'IDESI LA LIBERTAD','LA LIBERTAD',0,30,1),(25,'CAC SAN MARTIN TARAPOTO','SAN MARTIN',0,8,1),(26,'FONDESURCO','AREQUIPA',0,25,1),(27,'CEPCO','SAN MARTIN',0,20,1),(28,'CAC EFIDE','LIMA',0,6,1),(29,'CAC LA FLORIDA','JUNIN',0,7,1),(30,'CAC PRODELCO','LIMA',0,9,1),(31,'MOV. MANUELA RAMOS','LIMA',0,35,1),(32,'CARITAS FELICES','ANCASH',0,15,1),(33,'CAC SAN FRANCISCO DE MOCUPE','LAMBAYEQUE',0,11,1),(34,'CAC DEL ARTESANO CIAP','PUNO',0,12,1),(35,'CEPES','LIMA',0,16,1),(36,'CAC SAN SALVADOR','PUNO',0,13,1),(37,'CAC PARROQUIA SANTA ROSA','LIMA',0,41,1),(40,'SIDI','FRANCIA',1,40,1),(41,'ALTERFIN','BELGICA',1,2,1),(42,'CARITAS DEL PERU','LIMA',0,14,1),(43,'CIDIAG','LIMA',0,21,1);
 /*!40000 ALTER TABLE `website_tb_socio` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `website_tb_technical_report`
+--
+
+DROP TABLE IF EXISTS `website_tb_technical_report`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_tb_technical_report` (
+  `teri_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `clii_id` int(11) unsigned NOT NULL,
+  `terv_service` varchar(250) DEFAULT NULL,
+  `terd_date` date DEFAULT NULL,
+  `terd_starthour` datetime DEFAULT NULL,
+  `terd_endhour` datetime DEFAULT NULL,
+  `tert_used_product` text,
+  `tert_personal` text,
+  PRIMARY KEY (`teri_id`),
+  KEY `clii_id` (`clii_id`),
+  CONSTRAINT `website_tb_technical_report_ibfk_1` FOREIGN KEY (`clii_id`) REFERENCES `website_tb_client` (`clii_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_tb_technical_report`
+--
+
+LOCK TABLES `website_tb_technical_report` WRITE;
+/*!40000 ALTER TABLE `website_tb_technical_report` DISABLE KEYS */;
+/*!40000 ALTER TABLE `website_tb_technical_report` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `website_tb_technical_report_detail`
+--
+
+DROP TABLE IF EXISTS `website_tb_technical_report_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_tb_technical_report_detail` (
+  `trdi_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `teri_id` int(11) unsigned NOT NULL,
+  `trdv_area` varchar(250) DEFAULT NULL,
+  `trdt_observation` text,
+  `trdt_action` text,
+  `trdv_photo` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`trdi_id`),
+  KEY `teri_id` (`teri_id`),
+  CONSTRAINT `website_tb_technical_report_detail_ibfk_1` FOREIGN KEY (`teri_id`) REFERENCES `website_tb_technical_report` (`teri_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_tb_technical_report_detail`
+--
+
+LOCK TABLES `website_tb_technical_report_detail` WRITE;
+/*!40000 ALTER TABLE `website_tb_technical_report_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `website_tb_technical_report_detail` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -733,4 +817,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-23 23:37:49
+-- Dump completed on 2015-08-23 23:51:44
