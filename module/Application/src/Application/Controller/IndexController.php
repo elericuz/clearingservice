@@ -212,8 +212,8 @@ class IndexController extends MainController
             $detail = new WebsiteTbTechnicalReportDetail();
             $detail->setTeri($report)
                    ->setTrdvArea($request->getPost('trdvArea'))
-                   ->setTrdtObservation($request->getPost('trdvObservation'))
-                   ->setTrdtAction($request->getPost('trdvAction'));
+                   ->setTrdtObservation($request->getPost('trdtObservation'))
+                   ->setTrdtAction($request->getPost('trdtAction'));
             if(isset($fileName))
             {
                 $detail->setTrdvPhoto($fileName);

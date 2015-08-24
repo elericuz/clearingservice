@@ -9,7 +9,7 @@
     <div class="large-12 columns">
         <div class="row">
             <div class="large-3 columns text-right">
-                Cliente / Razón Social
+                <b>Cliente / Razón Social</b>
             </div>
             <div class="large-9 columns">
                 <?php echo $this->report->getClii()->getClivName(); ?>
@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="large-3 columns text-right">
-                Servicio
+                <b>Servicio</b>
             </div>
             <div class="large-9 columns">
                 <?php echo $this->report->getTervService(); ?>
@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="large-3 columns text-right">
-                Fecha del servicio
+                <b>Fecha del servicio</b>
             </div>
             <div class="large-9 columns">
                 <?php echo $this->report->getTerdDate()->format("d-m-Y"); ?>
@@ -33,13 +33,13 @@
         </div>
         <div class="row">
             <div class="large-3 columns text-right">
-                Hora de Inicio
+                <b>Hora de Inicio</b>
             </div>
             <div class="large-3 columns">
                 <?php echo $this->report->getTerdStartHour()->format("H:i"); ?>
             </div>
             <div class="large-3 columns text-right">
-                Hora de Fin
+                <b>Hora de Fin</b>
             </div>
             <div class="large-3 columns">
                 <?php echo $this->report->getTerdEndHour()->format("H:i"); ?>
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
             <div class="large-3 columns text-right">
-                Supervisor y Asistentes del Servicio
+                <b>Supervisor y Asistentes del Servicio</b>
             </div>
             <div class="large-9 columns">
                 <?php echo str_replace("\n", "<br>", $this->report->getTertPersonal()); ?>
@@ -55,7 +55,7 @@
         </div>
         <div class="row">
             <div class="large-3 columns text-right">
-                Productos Utilizados
+                <b>Productos Utilizados</b>
             </div>
             <div class="large-9 columns">
                 <?php echo str_replace("\n", "<br>", $this->report->getTertUsedProduct()); ?>
