@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Editar Servicio</h1>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="large-12 columns">
+        <form action="<? echo $this->url('edit-service'); ?>" method="post">
+            <input type="hidden" name="teriId" value="<?php echo $this->report->getTeriId(); ?>">
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Cliente / Razón Social
+                </div>
+                <div class="large-9 columns">
+                    <input type="text" name="clivName" value="<?php echo $this->report->getClii()->getClivName(); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Servicio
+                </div>
+                <div class="large-9 columns">
+                    <input type="text" name="tervService" value="<?php echo $this->report->getTervService(); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Fecha del servicio
+                </div>
+                <div class="large-9 columns">
+                    <input type="text" name="terdDate" id="terdDate" value="<?php echo $this->report->getTerdDate()->format("d-m-y"); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Hora de Inicio
+                </div>
+                <div class="large-3 columns">
+                    <input type="text" name="terdStartHour" value="<?php echo $this->report->getTerdStartHour()->format("H:i"); ?>" />
+                </div>
+                <div class="large-3 columns text-right">
+                    Hora de Fin
+                </div>
+                <div class="large-3 columns">
+                    <input type="text" name="terdEndHour" value="<?php echo $this->report->getTerdEndHour()->format("H:i"); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Supervisor y Asistentes del Servicio
+                </div>
+                <div class="large-9 columns">
+                    <textarea name="tertPersonal" rows="8"><?php echo $this->report->getTertPersonal(); ?></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Productos Utilizados
+                </div>
+                <div class="large-9 columns">
+                    <textarea name="tertUsedProduct" rows="8"><?php echo $this->report->getTertUsedProduct(); ?></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-12 columns">
+                    <button class="button radius tiny">Guardar</button>
+                    <a href="<?php echo $this->url('add-area-service', array('id'=>$this->report->getTeriId())); ?>" class="button radius tiny success">Agregar Area</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+$(function () {
+	$('#terdDate').fdatepicker({
+		format: 'dd-mm-yy',
+		disableDblClickSelection: true
+	});
+});
+</script>

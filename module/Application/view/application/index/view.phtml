@@ -1,0 +1,105 @@
+<br>
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Vista del Servicio</h1>
+    </div>
+</div>
+<hr<
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div class="large-3 columns text-right">
+                Cliente / Razón Social
+            </div>
+            <div class="large-9 columns">
+                <?php echo $this->report->getClii()->getClivName(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns text-right">
+                Servicio
+            </div>
+            <div class="large-9 columns">
+                <?php echo $this->report->getTervService(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns text-right">
+                Fecha del servicio
+            </div>
+            <div class="large-9 columns">
+                <?php echo $this->report->getTerdDate()->format("d-m-Y"); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns text-right">
+                Hora de Inicio
+            </div>
+            <div class="large-3 columns">
+                <?php echo $this->report->getTerdStartHour()->format("H:i"); ?>
+            </div>
+            <div class="large-3 columns text-right">
+                Hora de Fin
+            </div>
+            <div class="large-3 columns">
+                <?php echo $this->report->getTerdEndHour()->format("H:i"); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns text-right">
+                Supervisor y Asistentes del Servicio
+            </div>
+            <div class="large-9 columns">
+                <?php echo str_replace("\n", "<br>", $this->report->getTertPersonal()); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns text-right">
+                Productos Utilizados
+            </div>
+            <div class="large-9 columns">
+                <?php echo str_replace("\n", "<br>", $this->report->getTertUsedProduct()); ?>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <a href="<?php echo $this->url('edit-service') . "/" . $report->getTeriId(); ?>" class="button radius tiny">Editar</a>
+                <a href="<?php echo $this->url('add-area-service', array('id'=>$report->getTeriId())); ?>" class="button radius tiny success">Agregar Area</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <h1>Areas Atendidas</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="20%">Area</th>
+                            <th width="30%">Observaciones</th>
+                            <th width="30%">Recomendaciones / Acciones Correctivas</th>
+                            <th width="20%">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->details as $detail) { ?>
+                        <tr>
+                            <td><?php echo $detail->getTrdvArea(); ?></td>
+                            <td><?php echo $detail->getTrdtObservation(); ?></td>
+                            <td><?php echo $detail->getTrdtAction(); ?></td>
+                            <td>
+                                <a href="/photos/<?php echo $detail->getTrdvPhoto(); ?>" class="label">Ver Imágen</a>
+                                <a href="<?php echo $this->url('edit-area-service', array('id'=>$detail->getTrdiId())); ?>" class="label secondary">Editar</a>
+                                <a href="<?php echo $this->url('delete-area-service', array('id'=>$detail->getTrdiId())); ?>" class="label alert">Borrar</a>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,3 +15,5 @@ public/vendor
 .DS_Store
 logs/
 config/autoload/doctrine.global.php
+public/photos/*.*
+data/DoctrineORMModule/Proxy/*.*
