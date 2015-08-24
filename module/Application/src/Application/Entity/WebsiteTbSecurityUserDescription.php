@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WebsiteTbSecurityUserDescription
  *
- * @ORM\Table(name="website_tb_security_user_description", indexes={@ORM\Index(name="scex_tb_security_user_description_fk", columns={"susi_id"})})
+ * @ORM\Table(name="website_tb_security_user_description")
  * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityUserDescriptionRepository")
  */
 class WebsiteTbSecurityUserDescription
@@ -17,18 +17,9 @@ class WebsiteTbSecurityUserDescription
      *
      * @ORM\Column(name="susi_id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $susiId;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="sudy_status", type="boolean", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $sudyStatus = '1';
 
     /**
      * @var string
@@ -89,19 +80,6 @@ class WebsiteTbSecurityUserDescription
 
 
     /**
-     * Set susiId
-     *
-     * @param integer $susiId
-     * @return WebsiteTbSecurityUserDescription
-     */
-    public function setSusiId($susiId)
-    {
-        $this->susiId = $susiId;
-
-        return $this;
-    }
-
-    /**
      * Get susiId
      *
      * @return integer 
@@ -109,29 +87,6 @@ class WebsiteTbSecurityUserDescription
     public function getSusiId()
     {
         return $this->susiId;
-    }
-
-    /**
-     * Set sudyStatus
-     *
-     * @param boolean $sudyStatus
-     * @return WebsiteTbSecurityUserDescription
-     */
-    public function setSudyStatus($sudyStatus)
-    {
-        $this->sudyStatus = $sudyStatus;
-
-        return $this;
-    }
-
-    /**
-     * Get sudyStatus
-     *
-     * @return boolean 
-     */
-    public function getSudyStatus()
-    {
-        return $this->sudyStatus;
     }
 
     /**

@@ -13,22 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class WebsiteTbSecurityUser
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="susi_id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $susiId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="seni_id", type="integer", nullable=false)
-     */
-    private $seniId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="susv_login", type="string", length=32, nullable=false)
@@ -98,40 +82,29 @@ class WebsiteTbSecurityUser
      */
     private $susvModIp = '';
 
-
+    /**
+     * @var \Application\Entity\WebsiteTbSecurityUserDescription
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Application\Entity\WebsiteTbSecurityUserDescription")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="susi_id", referencedColumnName="susi_id")
+     * })
+     */
+    private $susi;
 
     /**
-     * Get susiId
+     * @var \Application\Entity\WebsiteTbSecurityEntity
      *
-     * @return integer 
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbSecurityEntity")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="seni_id", referencedColumnName="seni_id")
+     * })
      */
-    public function getSusiId()
-    {
-        return $this->susiId;
-    }
+    private $seni;
 
-    /**
-     * Set seniId
-     *
-     * @param integer $seniId
-     * @return WebsiteTbSecurityUser
-     */
-    public function setSeniId($seniId)
-    {
-        $this->seniId = $seniId;
 
-        return $this;
-    }
-
-    /**
-     * Get seniId
-     *
-     * @return integer 
-     */
-    public function getSeniId()
-    {
-        return $this->seniId;
-    }
 
     /**
      * Set susvLogin
@@ -361,5 +334,51 @@ class WebsiteTbSecurityUser
     public function getSusvModIp()
     {
         return $this->susvModIp;
+    }
+
+    /**
+     * Set susi
+     *
+     * @param \Application\Entity\WebsiteTbSecurityUserDescription $susi
+     * @return WebsiteTbSecurityUser
+     */
+    public function setSusi(\Application\Entity\WebsiteTbSecurityUserDescription $susi)
+    {
+        $this->susi = $susi;
+
+        return $this;
+    }
+
+    /**
+     * Get susi
+     *
+     * @return \Application\Entity\WebsiteTbSecurityUserDescription 
+     */
+    public function getSusi()
+    {
+        return $this->susi;
+    }
+
+    /**
+     * Set seni
+     *
+     * @param \Application\Entity\WebsiteTbSecurityEntity $seni
+     * @return WebsiteTbSecurityUser
+     */
+    public function setSeni(\Application\Entity\WebsiteTbSecurityEntity $seni = null)
+    {
+        $this->seni = $seni;
+
+        return $this;
+    }
+
+    /**
+     * Get seni
+     *
+     * @return \Application\Entity\WebsiteTbSecurityEntity 
+     */
+    public function getSeni()
+    {
+        return $this->seni;
     }
 }

@@ -22,13 +22,6 @@ class WebsiteTbSecurityGroup
     private $sgriId;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="seni_id", type="integer", nullable=false)
-     */
-    private $seniId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="sgrv_name", type="string", length=100, nullable=false)
@@ -91,6 +84,16 @@ class WebsiteTbSecurityGroup
      */
     private $sgrvModIp = '';
 
+    /**
+     * @var \Application\Entity\WebsiteTbSecurityEntity
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbSecurityEntity")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="seni_id", referencedColumnName="seni_id")
+     * })
+     */
+    private $seni;
+
 
 
     /**
@@ -101,29 +104,6 @@ class WebsiteTbSecurityGroup
     public function getSgriId()
     {
         return $this->sgriId;
-    }
-
-    /**
-     * Set seniId
-     *
-     * @param integer $seniId
-     * @return WebsiteTbSecurityGroup
-     */
-    public function setSeniId($seniId)
-    {
-        $this->seniId = $seniId;
-
-        return $this;
-    }
-
-    /**
-     * Get seniId
-     *
-     * @return integer 
-     */
-    public function getSeniId()
-    {
-        return $this->seniId;
     }
 
     /**
@@ -331,5 +311,28 @@ class WebsiteTbSecurityGroup
     public function getSgrvModIp()
     {
         return $this->sgrvModIp;
+    }
+
+    /**
+     * Set seni
+     *
+     * @param \Application\Entity\WebsiteTbSecurityEntity $seni
+     * @return WebsiteTbSecurityGroup
+     */
+    public function setSeni(\Application\Entity\WebsiteTbSecurityEntity $seni = null)
+    {
+        $this->seni = $seni;
+
+        return $this;
+    }
+
+    /**
+     * Get seni
+     *
+     * @return \Application\Entity\WebsiteTbSecurityEntity 
+     */
+    public function getSeni()
+    {
+        return $this->seni;
     }
 }

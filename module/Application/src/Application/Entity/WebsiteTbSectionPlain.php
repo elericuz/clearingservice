@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WebsiteTbSectionPlain
  *
- * @ORM\Table(name="website_tb_section_plain")
+ * @ORM\Table(name="website_tb_section_plain", indexes={@ORM\Index(name="section_category", columns={"scai_id"})})
  * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSectionPlainRepository")
  */
 class WebsiteTbSectionPlain
@@ -20,13 +20,6 @@ class WebsiteTbSectionPlain
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $sepiId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="scai_id", type="integer", nullable=true)
-     */
-    private $scaiId;
 
     /**
      * @var string
@@ -126,6 +119,16 @@ class WebsiteTbSectionPlain
      */
     private $sepvModIp;
 
+    /**
+     * @var \Application\Entity\WebsiteTbSectionCategory
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbSectionCategory")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="scai_id", referencedColumnName="scai_id")
+     * })
+     */
+    private $scai;
+
 
 
     /**
@@ -136,29 +139,6 @@ class WebsiteTbSectionPlain
     public function getSepiId()
     {
         return $this->sepiId;
-    }
-
-    /**
-     * Set scaiId
-     *
-     * @param integer $scaiId
-     * @return WebsiteTbSectionPlain
-     */
-    public function setScaiId($scaiId)
-    {
-        $this->scaiId = $scaiId;
-
-        return $this;
-    }
-
-    /**
-     * Get scaiId
-     *
-     * @return integer 
-     */
-    public function getScaiId()
-    {
-        return $this->scaiId;
     }
 
     /**
@@ -481,5 +461,28 @@ class WebsiteTbSectionPlain
     public function getSepvModIp()
     {
         return $this->sepvModIp;
+    }
+
+    /**
+     * Set scai
+     *
+     * @param \Application\Entity\WebsiteTbSectionCategory $scai
+     * @return WebsiteTbSectionPlain
+     */
+    public function setScai(\Application\Entity\WebsiteTbSectionCategory $scai = null)
+    {
+        $this->scai = $scai;
+
+        return $this;
+    }
+
+    /**
+     * Get scai
+     *
+     * @return \Application\Entity\WebsiteTbSectionCategory 
+     */
+    public function getScai()
+    {
+        return $this->scai;
     }
 }
