@@ -27,7 +27,7 @@ CREATE TABLE `website_tb_client` (
   `cliv_name` varchar(250) DEFAULT NULL,
   `cliv_address` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`clii_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `website_tb_client` (
 
 LOCK TABLES `website_tb_client` WRITE;
 /*!40000 ALTER TABLE `website_tb_client` DISABLE KEYS */;
+INSERT INTO `website_tb_client` VALUES (1,'cliente 1',NULL);
 /*!40000 ALTER TABLE `website_tb_client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -758,6 +759,7 @@ DROP TABLE IF EXISTS `website_tb_technical_report`;
 CREATE TABLE `website_tb_technical_report` (
   `teri_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `clii_id` int(11) unsigned NOT NULL,
+  `terv_number` varchar(9) DEFAULT NULL,
   `terv_service` varchar(250) DEFAULT NULL,
   `terd_date` date DEFAULT NULL,
   `terd_starthour` datetime DEFAULT NULL,
@@ -767,7 +769,7 @@ CREATE TABLE `website_tb_technical_report` (
   PRIMARY KEY (`teri_id`),
   KEY `clii_id` (`clii_id`),
   CONSTRAINT `website_tb_technical_report_ibfk_1` FOREIGN KEY (`clii_id`) REFERENCES `website_tb_client` (`clii_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -796,7 +798,7 @@ CREATE TABLE `website_tb_technical_report_detail` (
   PRIMARY KEY (`trdi_id`),
   KEY `teri_id` (`teri_id`),
   CONSTRAINT `website_tb_technical_report_detail_ibfk_1` FOREIGN KEY (`teri_id`) REFERENCES `website_tb_technical_report` (`teri_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -817,4 +819,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-23 23:51:44
+-- Dump completed on 2015-08-24 21:36:47

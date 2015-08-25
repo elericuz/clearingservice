@@ -24,6 +24,13 @@ class WebsiteTbTechnicalReport
     /**
      * @var string
      *
+     * @ORM\Column(name="terv_number", type="string", length=9, nullable=true)
+     */
+    private $tervNumber;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="terv_service", type="string", length=250, nullable=true)
      */
     private $tervService;
@@ -83,6 +90,29 @@ class WebsiteTbTechnicalReport
     public function getTeriId()
     {
         return $this->teriId;
+    }
+
+    /**
+     * Set tervNumber
+     *
+     * @param string $tervNumber
+     * @return WebsiteTbTechnicalReport
+     */
+    public function setTervNumber($tervNumber)
+    {
+        $this->tervNumber = $tervNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get tervNumber
+     *
+     * @return string 
+     */
+    public function getTervNumber()
+    {
+        return $this->tervNumber;
     }
 
     /**
