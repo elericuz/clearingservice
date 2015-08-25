@@ -56,6 +56,7 @@ class IndexController extends MainController
 
             $report_obj = new WebsiteTbTechnicalReport();
             $report_obj->setClii($client_obj)
+                       ->setTervNumber(str_pad($request->getPost('tervNumber'), 9, 0, STR_PAD_LEFT))
                        ->setTervService($request->getPost('tervService'))
                        ->setTerdDate(new \DateTime($date))
                        ->setTerdStarthour(new \DateTime($startHour))
@@ -115,7 +116,8 @@ class IndexController extends MainController
             $endHour = date("Y-m-d H:i:s", strtotime($date . " " . $request->getPost('terdEndHour')));
             $date = date("Y-m-d", strtotime($date));
 
-            $report->setTervService($request->getPost('tervService'))
+            $report->setTervNumber(str_pad($request->getPost('tervNumber'), 9, 0, STR_PAD_LEFT))
+                   ->setTervService($request->getPost('tervService'))
                    ->setTerdDate(new \DateTime($date))
                    ->setTerdStarthour(new \DateTime($startHour))
                    ->setTerdEndhour(new \DateTime($endHour))
