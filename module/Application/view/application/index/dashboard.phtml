@@ -9,8 +9,9 @@
             <thead>
                 <tr>
                     <th width="10%">Orden de Servicio</th>
-                    <th width="25%">Cliente</th>
-                    <th width="45%">Servicio</th>
+                    <th width="21%">Cliente</th>
+                    <th width="40%">Servicio</th>
+                    <th width="9%">Estado</th>
                     <th width="9%">Fecha</th>
                     <th width="11%">Acción</th>
                 </tr>
@@ -21,6 +22,24 @@
                     <td><?php echo $report->getTervNumber(); ?></td>
                     <td><?php echo $report->getClii()->getClivName(); ?></td>
                     <td><?php echo $report->getTervService(); ?></td>
+                    <?php
+                    switch($report->getTeriStatus())
+                    {
+                        case 1:
+                            $status = "Bueno";
+                            $color = "success";
+                            break;
+                        case 2:
+                            $status = "Regular";
+                            $color = "warning";
+                            break;
+                        case 3:
+                            $status = "Malo";
+                            $color = "alert";
+                            break;
+                    }
+                    ?>
+                    <td><span class="label <?php echo $color; ?>"><?php echo $status; ?></span></td>
                     <td><?php echo $report->getTerdDate()->format("d-m-Y"); ?></td>
                     <td>
                         <a href="<?php echo $this->url('view-service', array('id'=>$report->getTeriId())); ?>" class="label secondary">Ver</a>

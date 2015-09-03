@@ -71,6 +71,13 @@ class WebsiteTbTechnicalReport
     private $tertPersonal;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="teri_status", type="integer", nullable=false)
+     */
+    private $teriStatus = '1';
+
+    /**
      * @var \Application\Entity\WebsiteTbClient
      *
      * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbClient")
@@ -251,6 +258,29 @@ class WebsiteTbTechnicalReport
     public function getTertPersonal()
     {
         return $this->tertPersonal;
+    }
+
+    /**
+     * Set teriStatus
+     *
+     * @param integer $teriStatus
+     * @return WebsiteTbTechnicalReport
+     */
+    public function setTeriStatus($teriStatus)
+    {
+        $this->teriStatus = $teriStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get teriStatus
+     *
+     * @return integer 
+     */
+    public function getTeriStatus()
+    {
+        return $this->teriStatus;
     }
 
     /**

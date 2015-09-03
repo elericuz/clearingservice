@@ -62,7 +62,8 @@ class IndexController extends MainController
                        ->setTerdStarthour(new \DateTime($startHour))
                        ->setTerdEndhour(new \DateTime($endHour))
                        ->setTertUsedProduct($request->getPost('tertUsedProduct'))
-                       ->setTertPersonal($request->getPost('tertPersonal'));
+                       ->setTertPersonal($request->getPost('tertPersonal'))
+                       ->setTeriStatus($request->getPost('teriStatus'));
             $this->em->persist($report_obj);
 
             $this->em->flush();
@@ -122,7 +123,8 @@ class IndexController extends MainController
                    ->setTerdStarthour(new \DateTime($startHour))
                    ->setTerdEndhour(new \DateTime($endHour))
                    ->setTertUsedProduct($request->getPost('tertUsedProduct'))
-                   ->setTertPersonal($request->getPost('tertPersonal'));
+                   ->setTertPersonal($request->getPost('tertPersonal'))
+                   ->setTeriStatus($request->getPost('teriStatus'));
             $this->em->persist($report);
 
             $this->em->flush();

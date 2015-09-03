@@ -766,10 +766,11 @@ CREATE TABLE `website_tb_technical_report` (
   `terd_endhour` datetime DEFAULT NULL,
   `tert_used_product` text,
   `tert_personal` text,
+  `teri_status` int(1) NOT NULL DEFAULT '1' COMMENT '1=>bueno, 2=>regular, 3=>malo',
   PRIMARY KEY (`teri_id`),
   KEY `clii_id` (`clii_id`),
   CONSTRAINT `website_tb_technical_report_ibfk_1` FOREIGN KEY (`clii_id`) REFERENCES `website_tb_client` (`clii_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -819,4 +820,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-24 21:36:47
+-- Dump completed on 2015-09-03  8:16:40

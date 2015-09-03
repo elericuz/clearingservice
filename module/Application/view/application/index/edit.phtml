@@ -70,6 +70,18 @@
                     <textarea name="tertUsedProduct" rows="8"><?php echo $this->report->getTertUsedProduct(); ?></textarea>
                 </div>
             </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Estado
+                </div>
+                <div class="large-2 end columns">
+                    <select name="teri_status">
+                        <option value="1" <?php echo $this->report->getTeriStatus()==1?"Selected":""; ?>>Bueno</option>
+                        <option value="2" <?php echo $this->report->getTeriStatus()==2?"Selected":""; ?>>Regular</option>
+                        <option value="3" <?php echo $this->report->getTeriStatus()==3?"Selected":""; ?>>Malo</option>
+                    </select>
+                </div>
+            </div>
             <hr>
             <div class="row">
                 <div class="large-12 columns">
