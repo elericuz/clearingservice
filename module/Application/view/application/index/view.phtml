@@ -69,6 +69,31 @@
                 <?php echo str_replace("\n", "<br>", $this->report->getTertUsedProduct()); ?>
             </div>
         </div>
+        <div class="row">
+            <div class="large-3 columns text-right">
+                <b>Estado</b>
+            </div>
+            <div class="large-9 columns">
+                <?php
+                switch($this->report->getTeriStatus())
+                {
+                    case 1:
+                        $status = "Bueno";
+                        $color = "success";
+                        break;
+                    case 2:
+                        $status = "Regular";
+                        $color = "warning";
+                        break;
+                    case 3:
+                        $status = "Malo";
+                        $color = "alert";
+                        break;
+                }
+                ?>
+                <span class="label <?php echo $color; ?>"><?php echo $status; ?></span>
+            </div>
+        </div>
         <hr>
         <div class="row">
             <div class="large-12 columns">
