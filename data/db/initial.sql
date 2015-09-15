@@ -27,7 +27,7 @@ CREATE TABLE `website_tb_client` (
   `cliv_name` varchar(250) DEFAULT NULL,
   `cliv_address` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`clii_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `website_tb_client` (
 
 LOCK TABLES `website_tb_client` WRITE;
 /*!40000 ALTER TABLE `website_tb_client` DISABLE KEYS */;
-INSERT INTO `website_tb_client` VALUES (1,'cliente 1',NULL);
+INSERT INTO `website_tb_client` VALUES (1,'cliente 1',NULL),(3,'cliente 1',NULL);
 /*!40000 ALTER TABLE `website_tb_client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,16 +506,16 @@ CREATE TABLE `website_tb_security_entity` (
   `seni_id` int(11) NOT NULL AUTO_INCREMENT,
   `seti_id` int(11) DEFAULT NULL,
   `seny_status` tinyint(1) NOT NULL DEFAULT '1',
-  `seni_created_by` int(11) DEFAULT NULL,
+  `seni_created_by` int(11) NOT NULL,
   `send_created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `senv_created_ip` char(17) DEFAULT '',
+  `senv_created_ip` char(17) NOT NULL DEFAULT '',
   `seni_mod_by` int(11) DEFAULT NULL,
-  `send_mod_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `send_mod_date` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   `senv_mod_ip` char(17) DEFAULT '',
   PRIMARY KEY (`seni_id`),
   KEY `scex_tb_security_entity_fk` (`seti_id`),
   CONSTRAINT `entity_type` FOREIGN KEY (`seti_id`) REFERENCES `website_tb_security_entity_type` (`seti_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=2048 COMMENT='InnoDB free: 11264 kB; (`seti_id`) REFER `global_e/glen_tb_s';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=2048 COMMENT='InnoDB free: 11264 kB; (`seti_id`) REFER `global_e/glen_tb_s';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -666,18 +666,17 @@ CREATE TABLE `website_tb_security_user` (
   `susv_password` varchar(32) NOT NULL COMMENT 'in md5',
   `susv_loginname` char(150) DEFAULT '',
   `susy_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'the status\r\n0=>deleted, 1=>enabled, 2=>disabled, 3=>pending',
-  `susi_created_by` int(11) DEFAULT NULL,
-  `susd_created_date` datetime DEFAULT NULL,
-  `susv_created_ip` char(17) DEFAULT '',
+  `susi_created_by` int(11) NOT NULL,
+  `susd_created_date` datetime NOT NULL,
+  `susv_created_ip` char(17) NOT NULL DEFAULT '',
   `susi_mod_by` int(11) DEFAULT NULL,
   `susd_mod_date` datetime DEFAULT NULL,
   `susv_mod_ip` char(17) DEFAULT '',
   PRIMARY KEY (`susi_id`),
   UNIQUE KEY `susv_login` (`susv_login`),
   KEY `scex_tb_security_user_fk` (`seni_id`),
-  CONSTRAINT `user` FOREIGN KEY (`susi_id`) REFERENCES `website_tb_security_user_description` (`susi_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `user_entity` FOREIGN KEY (`seni_id`) REFERENCES `website_tb_security_entity` (`seni_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=309 COMMENT='InnoDB free: 11264 kB; (`seni_id`) REFER `global_e/glen_tb_s';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=309 COMMENT='InnoDB free: 11264 kB; (`seni_id`) REFER `global_e/glen_tb_s';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -686,7 +685,7 @@ CREATE TABLE `website_tb_security_user` (
 
 LOCK TABLES `website_tb_security_user` WRITE;
 /*!40000 ALTER TABLE `website_tb_security_user` DISABLE KEYS */;
-INSERT INTO `website_tb_security_user` VALUES (1,1,'56ced81a50052e74a2b4cc2c4202fdb5','fa717dd958f77703ad91c170bb57ccd8','admin@sysbus.com',1,NULL,NULL,'',1,'2010-11-17 01:06:23','127.0.0.1'),(2,3,'7bf287d85d71cc8ceaf377177b8128f7','b9c6c308f791b4ed1674f87a82032118','demo@sysbus.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:55','201.230.75.59');
+INSERT INTO `website_tb_security_user` VALUES (1,1,'56ced81a50052e74a2b4cc2c4202fdb5','fa717dd958f77703ad91c170bb57ccd8','admin@sysbus.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2010-11-17 01:06:23','127.0.0.1'),(2,3,'7bf287d85d71cc8ceaf377177b8128f7','b9c6c308f791b4ed1674f87a82032118','demo@sysbus.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:55','201.230.75.59');
 /*!40000 ALTER TABLE `website_tb_security_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -698,17 +697,20 @@ DROP TABLE IF EXISTS `website_tb_security_user_description`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `website_tb_security_user_description` (
-  `susi_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sudi_id` int(11) NOT NULL AUTO_INCREMENT,
+  `susi_id` int(11) NOT NULL,
   `sudv_name` varchar(150) DEFAULT NULL,
   `sudv_lastname` varchar(150) DEFAULT NULL,
-  `sudi_created_by` int(11) DEFAULT NULL,
-  `sudd_created_date` datetime DEFAULT NULL,
-  `sudv_created_ip` varchar(17) DEFAULT NULL,
+  `sudi_created_by` int(11) NOT NULL,
+  `sudd_created_date` datetime NOT NULL,
+  `sudv_created_ip` varchar(17) NOT NULL DEFAULT '',
   `sudi_mod_by` int(11) DEFAULT NULL,
   `sudd_mod_date` datetime DEFAULT NULL,
   `sudv_mod_ip` varchar(17) DEFAULT NULL,
-  PRIMARY KEY (`susi_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 11264 kB; (`susi_id`) REFER `global_e/glen_tb_s';
+  PRIMARY KEY (`sudi_id`),
+  KEY `has_user` (`susi_id`),
+  CONSTRAINT `has_user` FOREIGN KEY (`susi_id`) REFERENCES `website_tb_security_user` (`susi_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 11264 kB; (`susi_id`) REFER `global_e/glen_tb_s';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -717,7 +719,7 @@ CREATE TABLE `website_tb_security_user_description` (
 
 LOCK TABLES `website_tb_security_user_description` WRITE;
 /*!40000 ALTER TABLE `website_tb_security_user_description` DISABLE KEYS */;
-INSERT INTO `website_tb_security_user_description` VALUES (1,'Admin','',NULL,NULL,NULL,1,'2010-11-17 01:06:23','127.0.0.1'),(2,'Tester','',1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:56','201.230.75.59');
+INSERT INTO `website_tb_security_user_description` VALUES (1,1,'Admin','',1,'2010-11-16 06:30:54','127.0.0.1',1,'2010-11-17 01:06:23','127.0.0.1'),(2,2,'Tester','',1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:56','201.230.75.59');
 /*!40000 ALTER TABLE `website_tb_security_user_description` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -770,7 +772,7 @@ CREATE TABLE `website_tb_technical_report` (
   PRIMARY KEY (`teri_id`),
   KEY `clii_id` (`clii_id`),
   CONSTRAINT `website_tb_technical_report_ibfk_1` FOREIGN KEY (`clii_id`) REFERENCES `website_tb_client` (`clii_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -779,6 +781,7 @@ CREATE TABLE `website_tb_technical_report` (
 
 LOCK TABLES `website_tb_technical_report` WRITE;
 /*!40000 ALTER TABLE `website_tb_technical_report` DISABLE KEYS */;
+INSERT INTO `website_tb_technical_report` VALUES (1,3,'000234234','servicio 1','2015-09-03','2015-09-03 09:10:00','2015-09-03 09:30:00','dos','uno',3);
 /*!40000 ALTER TABLE `website_tb_technical_report` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -820,4 +823,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-03  8:16:40
+-- Dump completed on 2015-09-15  0:10:10
