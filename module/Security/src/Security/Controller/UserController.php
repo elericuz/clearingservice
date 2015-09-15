@@ -97,10 +97,6 @@ class UserController extends MainController
 
             return $this->redirect()->toRoute('user-list');
         }
-        else
-        {
-            return $this->redirect()->toRoute('dashboard');
-        }
     }
 
     public function editAction()

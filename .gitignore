@@ -17,3 +17,4 @@ logs/
 config/autoload/doctrine.global.php
 public/photos/*.*
 data/DoctrineORMModule/Proxy/*.*
+config/globals.php
