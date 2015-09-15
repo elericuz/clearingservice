@@ -53,6 +53,7 @@ class MainController extends AbstractActionController
             $this->userName = $user['userName'];
             $this->userEmail = $user['userEmail'];
             $this->layout()->_userName = $this->userName;
+            $this->layout()->_userId = $this->userId;
         }
     }
 

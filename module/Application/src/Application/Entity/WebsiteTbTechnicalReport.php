@@ -75,7 +75,7 @@ class WebsiteTbTechnicalReport
      *
      * @ORM\Column(name="teri_status", type="integer", nullable=false)
      */
-    private $teriStatus = '1';
+    private $teriStatus;
 
     /**
      * @var \Application\Entity\WebsiteTbClient

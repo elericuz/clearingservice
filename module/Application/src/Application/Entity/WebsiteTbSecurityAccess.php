@@ -26,7 +26,7 @@ class WebsiteTbSecurityAccess
      *
      * @ORM\Column(name="sacy_status", type="boolean", nullable=false)
      */
-    private $sacyStatus = '1';
+    private $sacyStatus;
 
     /**
      * @var integer

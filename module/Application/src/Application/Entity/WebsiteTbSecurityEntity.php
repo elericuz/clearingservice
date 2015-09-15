@@ -26,12 +26,12 @@ class WebsiteTbSecurityEntity
      *
      * @ORM\Column(name="seny_status", type="boolean", nullable=false)
      */
-    private $senyStatus = '1';
+    private $senyStatus;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="seni_created_by", type="integer", nullable=true)
+     * @ORM\Column(name="seni_created_by", type="integer", nullable=false)
      */
     private $seniCreatedBy;
 
@@ -40,14 +40,14 @@ class WebsiteTbSecurityEntity
      *
      * @ORM\Column(name="send_created_date", type="datetime", nullable=false)
      */
-    private $sendCreatedDate = 'CURRENT_TIMESTAMP';
+    private $sendCreatedDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="senv_created_ip", type="string", length=17, nullable=true)
+     * @ORM\Column(name="senv_created_ip", type="string", length=17, nullable=false)
      */
-    private $senvCreatedIp = '';
+    private $senvCreatedIp;
 
     /**
      * @var integer
@@ -59,16 +59,16 @@ class WebsiteTbSecurityEntity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="send_mod_date", type="datetime", nullable=false)
+     * @ORM\Column(name="send_mod_date", type="datetime", nullable=true)
      */
-    private $sendModDate = '0000-00-00 00:00:00';
+    private $sendModDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="senv_mod_ip", type="string", length=17, nullable=true)
      */
-    private $senvModIp = '';
+    private $senvModIp;
 
     /**
      * @var \Application\Entity\WebsiteTbSecurityEntityType

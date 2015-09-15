@@ -33,7 +33,7 @@ class WebsiteTbSectionTheme
      *
      * @ORM\Column(name="sthy_status", type="boolean", nullable=false)
      */
-    private $sthyStatus = '1';
+    private $sthyStatus;
 
 
 

@@ -26,14 +26,14 @@ class WebsiteTbSecurityEntityHierachy
      *
      * @ORM\Column(name="seni_father_id", type="integer", nullable=true)
      */
-    private $seniFatherId = '0';
+    private $seniFatherId;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="sehy_status", type="boolean", nullable=false)
      */
-    private $sehyStatus = '1';
+    private $sehyStatus;
 
     /**
      * @var \Application\Entity\WebsiteTbSecurityEntityHierachy

@@ -40,21 +40,21 @@ class WebsiteTbSocio
      *
      * @ORM\Column(name="socy_internacional", type="boolean", nullable=false)
      */
-    private $socyInternacional = '0';
+    private $socyInternacional;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="soci_order", type="integer", nullable=false)
      */
-    private $sociOrder = '0';
+    private $sociOrder;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="socy_status", type="boolean", nullable=false)
      */
-    private $socyStatus = '1';
+    private $socyStatus;
 
 
 

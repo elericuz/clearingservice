@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Editar Usuario</h1>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="large-12 columns">
+        <form action="<?php echo $this->url('user-edit'); ?>" method="post">
+            <input type="hidden" name="susiId" value="<?php echo $this->user->getSusi()->getSusiId(); ?>">
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Nombre
+                </div>
+                <div class="large-3 end columns">
+                    <input type="text" name="sudvName" value="<?php echo $this->user->getSudvName(); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Apellido
+                </div>
+                <div class="large-3 end columns">
+                    <input type="text" name="sudvLastname" value="<?php echo $this->user->getSudvLastname(); ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Correo Electrónico<br>
+                    <small>Es el usuario</small>
+                </div>
+                <div class="large-5 end columns">
+                    <input type="text" name="susvLoginname" value="<?php echo $this->user->getSusi()->getSusvLoginname(); ?>" disabled="true" />
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Password
+                </div>
+                <div class="large-5 end columns">
+                    <input type="password" name="susvPassword" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    Confirmar Password
+                </div>
+                <div class="large-5 end columns">
+                    <input type="password" name="rePassword" />
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-12 columns">
+                    <button class="button radius small">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

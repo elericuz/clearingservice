@@ -19,14 +19,14 @@ class WebsiteTbSectionTypeModule
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $styiId = '0';
+    private $styiId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="smoi_id", type="integer", nullable=false)
      */
-    private $smoiId = '0';
+    private $smoiId;
 
 
 

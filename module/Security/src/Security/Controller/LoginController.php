@@ -41,10 +41,12 @@ class LoginController extends MainController
             if($user_obj->getSusvPassword()!==$password)
                 throw new \RuntimeException("La contraseña no es válida");
 
+            $userDescription = $this->em->getRepository('Application\Entity\WebsiteTbSecurityUserDescription')->findOneBySusi($user_obj->getSusiId());
+
             $user = array(
-                'userId' => $user_obj->getSusi()->getSusiId(),
+                'userId' => $user_obj->getSusiId(),
                 'userEntity' => $user_obj->getSeni()->getSeniId(),
-                'userName' => $user_obj->getSusi()->getSudvName(),
+                'userName' => $userDescription->getSudvName(),
                 'userEmail' => $user_obj->getSusvLoginname()
             );
 

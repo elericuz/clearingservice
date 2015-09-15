@@ -33,7 +33,7 @@ class WebsiteTbSectionCategory
      *
      * @ORM\Column(name="scai_order", type="integer", nullable=false)
      */
-    private $scaiOrder = '0';
+    private $scaiOrder;
 
 
 

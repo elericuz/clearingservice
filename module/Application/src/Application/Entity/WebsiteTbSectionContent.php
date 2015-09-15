@@ -19,7 +19,7 @@ class WebsiteTbSectionContent
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $pbriId = '1';
+    private $pbriId;
 
     /**
      * @var integer
@@ -46,7 +46,7 @@ class WebsiteTbSectionContent
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $semiId = '0';
+    private $semiId;
 
     /**
      * @var integer
@@ -55,7 +55,7 @@ class WebsiteTbSectionContent
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $laniId = '1';
+    private $laniId;
 
     /**
      * @var integer
@@ -118,14 +118,14 @@ class WebsiteTbSectionContent
      *
      * @ORM\Column(name="sccy_status", type="boolean", nullable=false)
      */
-    private $sccyStatus = '1';
+    private $sccyStatus;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="secd_create_date", type="datetime", nullable=false)
      */
-    private $secdCreateDate = 'CURRENT_TIMESTAMP';
+    private $secdCreateDate;
 
 
 

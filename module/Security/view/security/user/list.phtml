@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Listado de Usuarios</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th width="45%">Nombre y Apellido</th>
+                    <th width="44%">Usuario</th>
+                    <th width="11%">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($this->users as $user) { ?>
+                <tr>
+                    <td><?php echo $user->getSudvName() . " " . $user->getSudvLastname(); ?></td>
+                    <td><?php echo $user->getSusi()->getSusvLoginname(); ?></td>
+                    <td>
+                        <a href="<?php echo $this->url('user-edit', array('id'=>$user->getSusi()->getSusiId())); ?>" class="label secondary">Ver</a>
+                        <?php if($user->getSusi()->getSusiId()!=1) { ?>
+                        <a href="<?php echo $this->url('user-delete', array('id'=>$user->getSusi()->getSusiId())); ?>" class="label alert">Borrar</a>
+                        <?php } ?>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="large-12 columns">
+        <a href="<?php echo $this->url('user-create'); ?>" class="button tiny">Crear un nuevo usuario</a>
+    </div>
+</div>

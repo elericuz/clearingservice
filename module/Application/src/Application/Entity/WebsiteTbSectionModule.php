@@ -33,7 +33,7 @@ class WebsiteTbSectionModule
      *
      * @ORM\Column(name="smoy_status", type="boolean", nullable=false)
      */
-    private $smoyStatus = '1';
+    private $smoyStatus;
 
 
 
