@@ -19,7 +19,7 @@ class WebsiteTbSectionDesc
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $laniId = '1';
+    private $laniId;
 
     /**
      * @var integer

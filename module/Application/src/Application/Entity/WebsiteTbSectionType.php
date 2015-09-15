@@ -40,7 +40,7 @@ class WebsiteTbSectionType
      *
      * @ORM\Column(name="styy_status", type="boolean", nullable=false)
      */
-    private $styyStatus = '1';
+    private $styyStatus;
 
 
 

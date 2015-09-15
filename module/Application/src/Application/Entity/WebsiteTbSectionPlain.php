@@ -33,7 +33,7 @@ class WebsiteTbSectionPlain
      *
      * @ORM\Column(name="sepy_hide_title", type="boolean", nullable=false)
      */
-    private $sepyHideTitle = '0';
+    private $sepyHideTitle;
 
     /**
      * @var string
@@ -54,28 +54,28 @@ class WebsiteTbSectionPlain
      *
      * @ORM\Column(name="sepy_location", type="boolean", nullable=false)
      */
-    private $sepyLocation = '1';
+    private $sepyLocation;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="sepy_type", type="boolean", nullable=false)
      */
-    private $sepyType = '1';
+    private $sepyType;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="sepi_order", type="integer", nullable=true)
      */
-    private $sepiOrder = '1';
+    private $sepiOrder;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="sepy_status", type="boolean", nullable=false)
      */
-    private $sepyStatus = '1';
+    private $sepyStatus;
 
     /**
      * @var integer

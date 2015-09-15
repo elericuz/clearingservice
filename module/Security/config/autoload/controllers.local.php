@@ -2,7 +2,7 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Security\Controller\Client' => 'Security\Controller\ClientController',
+            'Security\Controller\User' => 'Security\Controller\UserController',
             'Security\Controller\Login' => 'Security\Controller\LoginController',
         ),
     )

@@ -42,6 +42,20 @@
                     </li>
                 </ul>
             </li>
+            <?php if($this->_userId == 1) { ?>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a>Usuarios</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="<?php echo $this->url('user-list'); ?>">Listado</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url('user-create'); ?>">Crear</a>
+                    </li>
+                </ul>
+            </li>
+            <?php } ?>
         </ul>
     </section>
 </nav>

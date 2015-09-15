@@ -26,7 +26,7 @@ class WebsiteTbSecurityGroup
      *
      * @ORM\Column(name="sgrv_name", type="string", length=100, nullable=false)
      */
-    private $sgrvName = '';
+    private $sgrvName;
 
     /**
      * @var string
@@ -40,7 +40,7 @@ class WebsiteTbSecurityGroup
      *
      * @ORM\Column(name="sgry_status", type="boolean", nullable=false)
      */
-    private $sgryStatus = '1';
+    private $sgryStatus;
 
     /**
      * @var integer
@@ -54,14 +54,14 @@ class WebsiteTbSecurityGroup
      *
      * @ORM\Column(name="sgrd_created_date", type="datetime", nullable=false)
      */
-    private $sgrdCreatedDate = 'CURRENT_TIMESTAMP';
+    private $sgrdCreatedDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sgrv_created_ip", type="string", length=17, nullable=true)
      */
-    private $sgrvCreatedIp = '';
+    private $sgrvCreatedIp;
 
     /**
      * @var integer
@@ -75,14 +75,14 @@ class WebsiteTbSecurityGroup
      *
      * @ORM\Column(name="sgrd_mod_date", type="datetime", nullable=false)
      */
-    private $sgrdModDate = '0000-00-00 00:00:00';
+    private $sgrdModDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sgrv_mod_ip", type="string", length=17, nullable=true)
      */
-    private $sgrvModIp = '';
+    private $sgrvModIp;
 
     /**
      * @var \Application\Entity\WebsiteTbSecurityEntity

@@ -89,7 +89,7 @@ class WebsiteTbNews
      *
      * @ORM\Column(name="newy_status", type="boolean", nullable=false)
      */
-    private $newyStatus = '1';
+    private $newyStatus;
 
     /**
      * @var integer

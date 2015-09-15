@@ -26,35 +26,35 @@ class WebsiteTbSection
      *
      * @ORM\Column(name="pbri_id", type="integer", nullable=false)
      */
-    private $pbriId = '1';
+    private $pbriId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="seci_parent_id", type="integer", nullable=false)
      */
-    private $seciParentId = '1';
+    private $seciParentId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="styi_id", type="integer", nullable=false)
      */
-    private $styiId = '1';
+    private $styiId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="sthi_id", type="integer", nullable=false)
      */
-    private $sthiId = '1';
+    private $sthiId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="slti_id", type="integer", nullable=false)
      */
-    private $sltiId = '1';
+    private $sltiId;
 
     /**
      * @var integer
@@ -68,21 +68,21 @@ class WebsiteTbSection
      *
      * @ORM\Column(name="secy_status", type="smallint", nullable=false)
      */
-    private $secyStatus = '1';
+    private $secyStatus;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="secy_section", type="smallint", nullable=false)
      */
-    private $secySection = '1';
+    private $secySection;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="secd_created_date", type="datetime", nullable=false)
      */
-    private $secdCreatedDate = 'CURRENT_TIMESTAMP';
+    private $secdCreatedDate;
 
     /**
      * @var string

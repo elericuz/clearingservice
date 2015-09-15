@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WebsiteTbSecurityUserDescription
  *
- * @ORM\Table(name="website_tb_security_user_description")
+ * @ORM\Table(name="website_tb_security_user_description", indexes={@ORM\Index(name="has_user", columns={"susi_id"})})
  * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityUserDescriptionRepository")
  */
 class WebsiteTbSecurityUserDescription
@@ -15,11 +15,11 @@ class WebsiteTbSecurityUserDescription
     /**
      * @var integer
      *
-     * @ORM\Column(name="susi_id", type="integer", nullable=false)
+     * @ORM\Column(name="sudi_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $susiId;
+    private $sudiId;
 
     /**
      * @var string
@@ -38,21 +38,21 @@ class WebsiteTbSecurityUserDescription
     /**
      * @var integer
      *
-     * @ORM\Column(name="sudi_created_by", type="integer", nullable=true)
+     * @ORM\Column(name="sudi_created_by", type="integer", nullable=false)
      */
     private $sudiCreatedBy;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="sudd_created_date", type="datetime", nullable=true)
+     * @ORM\Column(name="sudd_created_date", type="datetime", nullable=false)
      */
     private $suddCreatedDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sudv_created_ip", type="string", length=17, nullable=true)
+     * @ORM\Column(name="sudv_created_ip", type="string", length=17, nullable=false)
      */
     private $sudvCreatedIp;
 
@@ -77,16 +77,26 @@ class WebsiteTbSecurityUserDescription
      */
     private $sudvModIp;
 
+    /**
+     * @var \Application\Entity\WebsiteTbSecurityUser
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbSecurityUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="susi_id", referencedColumnName="susi_id")
+     * })
+     */
+    private $susi;
+
 
 
     /**
-     * Get susiId
+     * Get sudiId
      *
      * @return integer 
      */
-    public function getSusiId()
+    public function getSudiId()
     {
-        return $this->susiId;
+        return $this->sudiId;
     }
 
     /**
@@ -271,5 +281,28 @@ class WebsiteTbSecurityUserDescription
     public function getSudvModIp()
     {
         return $this->sudvModIp;
+    }
+
+    /**
+     * Set susi
+     *
+     * @param \Application\Entity\WebsiteTbSecurityUser $susi
+     * @return WebsiteTbSecurityUserDescription
+     */
+    public function setSusi(\Application\Entity\WebsiteTbSecurityUser $susi = null)
+    {
+        $this->susi = $susi;
+
+        return $this;
+    }
+
+    /**
+     * Get susi
+     *
+     * @return \Application\Entity\WebsiteTbSecurityUser 
+     */
+    public function getSusi()
+    {
+        return $this->susi;
     }
 }

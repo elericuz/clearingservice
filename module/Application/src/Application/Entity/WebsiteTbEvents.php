@@ -26,7 +26,7 @@ class WebsiteTbEvents
      *
      * @ORM\Column(name="evei_parent_id", type="integer", nullable=false)
      */
-    private $eveiParentId = '0';
+    private $eveiParentId;
 
     /**
      * @var string
@@ -61,21 +61,21 @@ class WebsiteTbEvents
      *
      * @ORM\Column(name="evev_place", type="string", length=250, nullable=true)
      */
-    private $evevPlace = '';
+    private $evevPlace;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="evei_all_day", type="integer", nullable=false)
      */
-    private $eveiAllDay = '0';
+    private $eveiAllDay;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="evei_status", type="integer", nullable=true)
      */
-    private $eveiStatus = '1';
+    private $eveiStatus;
 
 
 

@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class WebsiteTbSecurityUser
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="susi_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $susiId;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="susv_login", type="string", length=32, nullable=false)
@@ -31,35 +40,35 @@ class WebsiteTbSecurityUser
      *
      * @ORM\Column(name="susv_loginname", type="string", length=150, nullable=true)
      */
-    private $susvLoginname = '';
+    private $susvLoginname;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="susy_status", type="boolean", nullable=false)
      */
-    private $susyStatus = '1';
+    private $susyStatus;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="susi_created_by", type="integer", nullable=true)
+     * @ORM\Column(name="susi_created_by", type="integer", nullable=false)
      */
     private $susiCreatedBy;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="susd_created_date", type="datetime", nullable=true)
+     * @ORM\Column(name="susd_created_date", type="datetime", nullable=false)
      */
     private $susdCreatedDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="susv_created_ip", type="string", length=17, nullable=true)
+     * @ORM\Column(name="susv_created_ip", type="string", length=17, nullable=false)
      */
-    private $susvCreatedIp = '';
+    private $susvCreatedIp;
 
     /**
      * @var integer
@@ -80,19 +89,7 @@ class WebsiteTbSecurityUser
      *
      * @ORM\Column(name="susv_mod_ip", type="string", length=17, nullable=true)
      */
-    private $susvModIp = '';
-
-    /**
-     * @var \Application\Entity\WebsiteTbSecurityUserDescription
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Application\Entity\WebsiteTbSecurityUserDescription")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="susi_id", referencedColumnName="susi_id")
-     * })
-     */
-    private $susi;
+    private $susvModIp;
 
     /**
      * @var \Application\Entity\WebsiteTbSecurityEntity
@@ -105,6 +102,16 @@ class WebsiteTbSecurityUser
     private $seni;
 
 
+
+    /**
+     * Get susiId
+     *
+     * @return integer 
+     */
+    public function getSusiId()
+    {
+        return $this->susiId;
+    }
 
     /**
      * Set susvLogin
@@ -334,29 +341,6 @@ class WebsiteTbSecurityUser
     public function getSusvModIp()
     {
         return $this->susvModIp;
-    }
-
-    /**
-     * Set susi
-     *
-     * @param \Application\Entity\WebsiteTbSecurityUserDescription $susi
-     * @return WebsiteTbSecurityUser
-     */
-    public function setSusi(\Application\Entity\WebsiteTbSecurityUserDescription $susi)
-    {
-        $this->susi = $susi;
-
-        return $this;
-    }
-
-    /**
-     * Get susi
-     *
-     * @return \Application\Entity\WebsiteTbSecurityUserDescription 
-     */
-    public function getSusi()
-    {
-        return $this->susi;
     }
 
     /**

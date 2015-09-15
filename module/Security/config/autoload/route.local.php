@@ -22,46 +22,45 @@ return array(
                     ),
                 ),
             ),
-            'clients' => array(
+            'user-list' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/client',
+                    'route' => '/users',
                     'defaults' => array(
-                        'controller' => 'Security\Controller\Client',
-                        'action' => 'index',
+                        'controller' => 'Security\Controller\User',
+                        'action' => 'list',
                     ),
                 ),
             ),
-            'create-client' => array(
+            'user-create' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/client-create',
+                    'route' => '/users/create',
                     'defaults' => array(
-                        'controller' => 'Security\Controller\Client',
+                        'controller' => 'Security\Controller\User',
                         'action' => 'create',
                     ),
                 ),
             ),
-            'edit-client' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+            'user-edit' => array(
+                'type' => 'segment',
                 'options' => array(
-                    'route' => '/client-edit',
+                    'route' => '/users/edit/:id',
                     'defaults' => array(
-                        'controller' => 'Security\Controller\Client',
+                        'controller' => 'Security\Controller\User',
                         'action' => 'edit',
+                        'id' => '[0-9]+',
                     ),
                 ),
             ),
-            'view-client' => array(
+            'user-delete' => array(
                 'type' => 'segment',
                 'options' => array(
-                    'route' => '/client/view[/:id]',
-                    'constraints' => array(
-                        'id'  => '[0-9]+',
-                    ),
+                    'route' => '/users/delete/:id',
                     'defaults' => array(
-                        'controller' => 'Security\Controller\Client',
-                        'action' => 'view',
+                        'controller' => 'Security\Controller\User',
+                        'action' => 'delete',
+                        'id' => '[0-9]+',
                     ),
                 ),
             ),
